@@ -29,11 +29,11 @@ const signIn = async (email, password) => {
       password,
     };
 
-    console.log({ data });
+    // console.log({ data });
     const options = {
       method: "POST",
       headers: {
-        "Content-Tyope": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     };
@@ -94,11 +94,11 @@ document.addEventListener("DOMContentLoaded", () => {
     signInFormEl &&
       signInFormEl.addEventListener("submit", async (e) => {
         e.preventDefault();
-
         const resp = await signIn(signInEmailEl.value, signInPasswordEl.value);
-
         if (resp.success) {
+          signInFormEl.reset();
           alert("signed in successfully!");
+          window.location.href = "http://localhost:3000/healthcare/api/";
         }
       });
 

@@ -1,0 +1,144 @@
+.navbar-brand {
+  font-size: 1.5rem;
+  color: white !important;
+}
+.nav-link {
+  color: white !important;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+p {
+  font-size: 1.3rem;
+}
+.hero-section {
+  height: 93vh;
+  padding-top: 32vh;
+}
+.m-h1 {
+  font-size: 4rem;
+  font-weight: bolder;
+}
+.m-description {
+  font-size: 2rem;
+}
+.get-started-button {
+  font-size: 1.5rem;
+}
+.services-container {
+  margin: 4rem 0;
+}
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 2rem 0;
+}
+.services {
+  display: flex;
+  justify-content: space-around;
+}
+.service {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+.about {
+  background-color: rgb(244 241 241);
+  padding: 2rem;
+}
+.card {
+  background-color: transparent !important;
+  border: none;
+}
+.card-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.img {
+  width: 100%;
+  padding: 1rem;
+}
+.card-title {
+  text-align: left;
+}
+
+.carousel-container {
+  height: 22rem;
+  width: 100%;
+  padding: 0 200px;
+}
+.carousel-item {
+  border-radius: 2rem;
+  height: 100%;
+  padding: 2rem;
+}
+.carousel-item-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 2rem 2rem 0rem 2rem;
+}
+.carousel-item-text-author {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 2rem 2rem 0rem 2rem;
+}
+.form-section {
+  padding: 2rem 0;
+  background-color: rgb(244 241 241);
+}
+.form {
+  width: 50%;
+  margin: 0 auto;
+}
+.submit {
+  width: 100%;
+}
+
+.footer {
+  padding: 2rem 0;
+}
+.top {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+.footer-item {
+  border: 1px solid red;
+}
+
+.quick-links {
+  list-style-type: none;
+}
+ul {
+  margin: 0;
+  padding: 10px;
+}
+
+/* Sign Up Page */
+
+.sign-up-section {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+}
+.sign-up-card {
+  border: 1px solid blue;
+  border-radius: 1rem;
+  /* padding: 0 1rem; */
+}
+.sign-in-btn {
+  width: 100%;
+}
+.dashboard-main {
+  padding: 3rem 9rem;
+}
+.profile-image {
+  width: 50%;
+  aspect-ratio: 1/1;
+  border-radius: 22rem;
+}

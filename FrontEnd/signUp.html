@@ -41,26 +41,21 @@
             <div class="d-flex align-items-center">
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a
-                    class="nav-link active"
-                    aria-current="page"
-                    href="./index.html"
+                  <a class="nav-link active" aria-current="page" href="http://localhost:3000/healthcare/api/"
                     >Home</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">Services</a>
+                  <a class="nav-link" aria-current="page" href="http://localhost:3000/healthcare/api/services.html">Services</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">About Us</a>
+                  <a class="nav-link" aria-current="page" href="http://localhost:3000/healthcare/api/about.html">About Us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">Contact</a>
+                  <a class="nav-link" aria-current="page" href="http://localhost:3000/healthcare/api/contacts.html">Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="./SignUp.html"
-                    >Sign Up</a
-                  >
+                  <a class="nav-link" aria-current="page" href="./signIn.html">Sign In</a>
                 </li>
               </ul>
             </div>
@@ -68,48 +63,32 @@
         </div>
       </nav>
       <section class="sign-up-section">
-        <div
-          class="card border border-primary mt-5 rounded-4"
-          style="width: 30rem"
-        >
+        <div class="card border border-primary mt-5" style="width: 30rem">
           <div class="card-body p-0">
-            <h2
-              class="card-title bg-primary text-2xl p-2 text-center m-0 rounded-top-4 text-light"
-            >
-              Sign In
-            </h2>
+            <h2 class="card-title bg-primary text-2xl p-2 text-center m-0 rounded-top-4 text-light">Sign Up</h2>
             <div class="p-5 pb-3">
-              <form class="m-0 p-0" id="signinForm">
+              <form class="m-0 p-0" id="signUpForm">
                 <div class="mb-3">
-                  <label for="signinInputEmail1" class="form-label"
-                    >Email address</label
-                  >
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="signinInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter your email address"
-                  />
+                  <label for="signupInputName" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="signupInputName" aria-describedby="nameHelp" placeholder="Enter your full name">
                 </div>
                 <div class="mb-3">
-                  <label for="signinInputPassword1" class="form-label"
-                    >Password</label
-                  >
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="signinInputPassword1"
-                    placeholder="Enter your password"
-                  />
+                  <label for="signupInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="signupInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email address">
                 </div>
-                <button type="submit" class="btn btn-primary sign-in-btn mb-2">
-                  Sign In
-                </button>
+                <div class="mb-3">
+                  <label for="signupInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="signupInputPassword1" placeholder="Enter your password">
+                </div>
+                <div class="mb-3"></div>
+                  <label for="signupInputPassword2" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" id="signupInputPassword2" placeholder="Confirm your password">
+                </div>
+                <button type="submit" class="btn btn-primary mt-0 mx-5 mb-2">Sign Up</button>
               </form>
               <p class="text-center fs-5">
-                Don't have an account?
-                <a href="./SignUp.html" class="card-link">Sign Up</a>
+                Already have an account?
+                <a href="signIn.html" class="card-link">Sign In</a>
               </p>
             </div>
           </div>

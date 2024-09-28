@@ -1,6 +1,14 @@
 const BASE_URL = "http://localhost:3000/healthcare/api";
 
 /* API calls */
+
+/**
+ * Sign Ups the user
+ * @param {string} name
+ * @param {string} email
+ * @param {string} password
+ * @returns Object
+ */
 const signUp = async (name, email, password) => {
   try {
     const url = `${BASE_URL}/auth/signup`;
@@ -21,6 +29,11 @@ const signUp = async (name, email, password) => {
   }
 };
 
+/**
+ * Signs in the user
+ * @param {string} email
+ * @param {string} password
+ */
 const signIn = async (email, password) => {
   try {
     const url = `${BASE_URL}/auth/signin`;
@@ -29,7 +42,6 @@ const signIn = async (email, password) => {
       password,
     };
 
-    // console.log({ data });
     const options = {
       method: "POST",
       headers: {
@@ -40,20 +52,37 @@ const signIn = async (email, password) => {
 
     const resp = await fetch(url, options);
     const sigInResp = await resp.json();
-    console.log({ sigInResp });
     localStorage.setItem("token", sigInResp.token);
-    return sigInResp;
   } catch (error) {
     console.log(error);
     alert("Something went wrong!");
   }
 };
 
+const signOut = () => {
+  localStorage.removeItem("token");
+};
+
+/**
+ * Verifies the token existance.
+ * @returns boolean
+ */
 const verifyToken = () => {
   const token = localStorage.getItem("token");
   if (!token) {
-    window.location.href = "http://localhost:3000/healthcare/api/auth/signin";
+    if (
+      window.location.href !==
+        "http://localhost:3000/healthcare/api/auth/signIn.html" &&
+      window.location.href !==
+        "http://localhost:3000/healthcare/api/auth/signUp.html" &&
+      window.location.href !== "http://localhost:3000/healthcare/api/"
+    ) {
+      window.location.href =
+        "http://localhost:3000/healthcare/api/auth/signIn.html";
+    }
+    return false;
   }
+  return true;
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -65,10 +94,23 @@ document.addEventListener("DOMContentLoaded", () => {
       "#signupInputPassword2"
     );
     const signUpFormEl = document.querySelector("#signUpForm");
-
     const signInFormEl = document.querySelector("#signinForm");
     const signInEmailEl = document.querySelector("#signinInputEmail1");
     const signInPasswordEl = document.querySelector("#signinInputPassword1");
+    const navSignInBtnEl = document.querySelector("#signInBtn");
+    const navSignOutBtnEl = document.querySelector("#signOutBtn");
+
+    /* verifying the token/login-status */
+    const isSignedIn = verifyToken();
+
+    /* dynamic button rendering */
+    if (isSignedIn) {
+      navSignInBtnEl.style.display = "none";
+      navSignOutBtnEl.style.display = "block";
+    } else {
+      navSignInBtnEl.style.display = "block";
+      navSignOutBtnEl.style.display = "none";
+    }
 
     /* Signup form submission */
     signUpFormEl &&
@@ -85,8 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
           signUpPasswordEl.value
         );
         if (response.success) {
-          alert("User Signed Up!");
           signUpFormEl.reset();
+          alert("User Signed Up!");
+          window.location.href =
+            "http://localhost:3000/healthcare/api/signIn.html";
         }
       });
 
@@ -101,6 +145,9 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.href = "http://localhost:3000/healthcare/api/";
         }
       });
+
+    /* signout */
+    navSignOutBtnEl && navSignOutBtnEl.addEventListener("click", signOut);
 
     /**
      *

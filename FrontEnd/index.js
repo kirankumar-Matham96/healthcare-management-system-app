@@ -28,6 +28,8 @@ const signIn = async (email, password) => {
       email,
       password,
     };
+
+    console.log({ data });
     const options = {
       method: "POST",
       headers: {
@@ -39,10 +41,18 @@ const signIn = async (email, password) => {
     const resp = await fetch(url, options);
     const sigInResp = await resp.json();
     console.log({ sigInResp });
+    localStorage.setItem("token", sigInResp.token);
     return sigInResp;
   } catch (error) {
     console.log(error);
     alert("Something went wrong!");
+  }
+};
+
+const verifyToken = () => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    window.location.href = "http://localhost:3000/healthcare/api/auth/signin";
   }
 };
 

@@ -7,5 +7,8 @@ export class CustomErrors extends Error {
 }
 
 export const errorHandlingMiddleware = (error, req, res, next) => {
-  res.status(error.code || 500).send(error.message || "something went wrong!");
+  console.log({ error });
+  res
+    .status(error.code || 500)
+    .json({ success: false, error: error.message || "something went wrong!" });
 };

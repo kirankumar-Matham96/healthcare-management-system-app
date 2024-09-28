@@ -17,9 +17,11 @@ export class AuthRepository {
     }
   };
 
-  signIn = async (data) => {
+  signIn = async (email) => {
+    console.log({ email });
     try {
-      const user = await this.userModel.findOne({ email: data.email });
+      const user = await this.userModel.findOne({ email });
+      console.log({ user });
       if (!user) {
         throw new CustomErrors("User Not Found", 404);
       }

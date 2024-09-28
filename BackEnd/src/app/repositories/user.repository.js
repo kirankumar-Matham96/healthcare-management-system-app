@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { CustomErrors } from "../../middlewares/errorHandlingMiddleware.js";
-import { userSchema } from "../schemas/user.schema";
+import { userSchema } from "../schemas/user.schema.js";
 
 export class UserRepository {
   constructor() {

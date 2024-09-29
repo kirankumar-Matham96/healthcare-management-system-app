@@ -4,7 +4,8 @@
   "main": "client.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon ./BackEnd/server.js"
+    "start": "node ./BackEnd/server.js",
+    "dev": "nodemon ./BackEnd/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +14,7 @@
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "express": "^4.21.0",
+    "express-rate-limit": "^7.4.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.6.3"
   },

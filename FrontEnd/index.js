@@ -35,12 +35,15 @@ const signUp = async (name, email, password) => {
  * @param {string} password
  */
 const signIn = async (email, password) => {
+  console.log("🚀 ~ signIn ~ password:", password);
+  console.log("🚀 ~ signIn ~ email:", email);
   try {
     const url = `${BASE_URL}/auth/signin`;
     const data = {
       email,
       password,
     };
+    console.log("🚀 ~ signIn ~ data:", data);
 
     const options = {
       method: "POST",
@@ -49,10 +52,14 @@ const signIn = async (email, password) => {
       },
       body: JSON.stringify(data),
     };
+    console.log("🚀 ~ signIn ~ options:", options);
 
     const resp = await fetch(url, options);
     const sigInResp = await resp.json();
+    console.log("🚀 ~ signIn ~ sigInResp:", sigInResp);
+    alert(sigInResp);
     localStorage.setItem("token", sigInResp.token);
+    return sigInResp;
   } catch (error) {
     console.log(error);
     alert("Something went wrong!");
@@ -139,11 +146,15 @@ document.addEventListener("DOMContentLoaded", () => {
       signInFormEl.addEventListener("submit", async (e) => {
         e.preventDefault();
         const resp = await signIn(signInEmailEl.value, signInPasswordEl.value);
+        console.log("🚀 ~ signInFormEl.addEventListener ~ resp:", resp);
         if (resp.success) {
           signInFormEl.reset();
           alert("signed in successfully!");
           window.location.href = "http://localhost:3000/healthcare/api/";
+          return;
         }
+
+        alert(resp.error);
       });
 
     /* signout */
@@ -204,6 +215,6 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       });
   } catch (error) {
-    console.log(error);
+    console.log("🚀 ~ document.addEventListener ~ error:", error);
   }
 });

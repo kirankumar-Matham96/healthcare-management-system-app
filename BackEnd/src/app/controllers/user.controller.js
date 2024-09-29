@@ -4,10 +4,9 @@ export class UserController {
   constructor() {
     this.userRepo = new UserRepository();
   }
-  getUserByEmail = async (req, res, next) => {
+  getUserById = async (req, res, next) => {
     try {
-      const { email } = req.body;
-      const user = await this.userRepo.getUser(email);
+      const user = await this.userRepo.getUser(req.userId);
       res.status(200).json({ success: true, user });
     } catch (error) {
       next(error);

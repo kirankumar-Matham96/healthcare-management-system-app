@@ -6,9 +6,9 @@ export class UserRepository {
   constructor() {
     this.userModel = mongoose.model("Users", userSchema);
   }
-  getUser = async (email) => {
+  getUser = async (id) => {
     try {
-      const userData = await this.userModel.findOne({ email });
+      const userData = await this.userModel.findOne({ _id: id });
       if (!userData) {
         throw new CustomErrors("User not found!", 404);
       }

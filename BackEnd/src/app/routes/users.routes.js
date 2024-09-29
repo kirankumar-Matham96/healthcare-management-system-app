@@ -6,4 +6,4 @@ export const userRouter = Router();
 
 const userController = new UserController();
 
-userRouter.get("/userbyemail", authorized, userController.getUserByEmail);
+userRouter.get("/userbyid", authorized, userController.getUserById);

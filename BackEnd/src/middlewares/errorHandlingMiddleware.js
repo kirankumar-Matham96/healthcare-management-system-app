@@ -7,7 +7,14 @@ export class CustomErrors extends Error {
 }
 
 export const errorHandlingMiddleware = (error, req, res, next) => {
-  console.log({ error });
+  console.log("🚀 ~ errorHandlingMiddleware ~ error:", error.code);
+
+  if (error.code === 11000) {
+    return res
+      .status(400)
+      .json({ success: false, error: "User already registered! Please login" });
+  }
+
   res
     .status(error.code || 500)
     .json({ success: false, error: error.message || "something went wrong!" });

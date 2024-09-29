@@ -81,7 +81,7 @@ const verifyToken = () => {
       window.location.href !==
         "http://localhost:3000/healthcare/api/auth/signIn.html" &&
       window.location.href !==
-        "http://localhost:3000/healthcare/api/auth/signUp.html" &&
+        "https://healthcare-management-system-app.onrender.com/api/" &&
       window.location.href !== "http://localhost:3000/healthcare/api/"
     ) {
       window.location.href =

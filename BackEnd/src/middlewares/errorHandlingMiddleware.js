@@ -7,8 +7,6 @@ export class CustomErrors extends Error {
 }
 
 export const errorHandlingMiddleware = (error, req, res, next) => {
-  console.log("🚀 ~ errorHandlingMiddleware ~ error:", error.code);
-
   if (error.code === 11000) {
     return res
       .status(400)

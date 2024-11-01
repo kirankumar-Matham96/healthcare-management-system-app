@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { rateLimit } from "express-rate-limit";
+import path from "path";
 
 import { connectToDB } from "./config/config.js";
 import { authRoutes } from "./src/app/routes/auth.routes.js";
@@ -19,6 +20,9 @@ const limiter = rateLimit({
   limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
 });
 app.use(limiter);
+
+const publicPath = path.resolve("FrontEnd");
+app.use(express.static(publicPath));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRouter);

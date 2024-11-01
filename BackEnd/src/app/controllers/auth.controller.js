@@ -29,8 +29,6 @@ export class AuthControllers {
   signIn = async (req, res, next) => {
     try {
       const { email, password } = req.body;
-      console.log("body => ", req.body);
-      console.log("in controller => ", { email });
       const resp = await this.authRepo.signIn(email);
 
       const isValid = await bcrypt.compare(password, resp.password);
